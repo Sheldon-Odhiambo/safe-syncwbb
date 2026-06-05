@@ -1,54 +1,61 @@
-import { Smartphone, Monitor, Headset } from 'lucide-react';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { Shield } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
-const tabs = [
-  { id: 'employee', icon: Smartphone, title: 'Employee App', desc: 'Instant panic button and safety tools for field and office staff.', img: 'https://images.unsplash.com/photo-1512428559087-565fa5ce5e26?auto=format&fit=crop&q=80&w=800' },
-  { id: 'dashboard', icon: Monitor, title: 'Company Dashboard', desc: 'Centralized monitoring for security and HR teams.', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800' },
-  { id: 'responder', icon: Headset, title: 'Responder Panel', desc: 'Live incident management for emergency response teams.', img: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800' },
+
+const sections = [
+  { title: 'Employee App', features: ['Panic button', 'GPS location sharing', 'Alert confirmation', 'Emergency status updates'], image: 'https://images.unsplash.com/photo-1512428559087-565fa5ce5e26?auto=format&fit=crop&q=80&w=800' },
+  { title: 'Company Dashboard', features: ['Incident monitoring', 'Branch management', 'Reports', 'Emergency contacts'], image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800' },
+  { title: 'Responder Dashboard', features: ['Incoming emergency alerts', 'Live map location', 'Accept/reject incidents', 'Mark incidents resolved'], image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800' },
+  { title: 'Super Admin Panel', features: ['Company onboarding', 'Analytics', 'Responder management', 'Incident oversight'], image: 'https://images.unsplash.com/photo-1573164713715-17761005a30e?auto=format&fit=crop&q=80&w=800' },
 ];
 
 export default function SafeSyncPlatform() {
-  const [active, setActive] = useState('employee');
-  const activeTab = tabs.find(t => t.id === active)!;
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [isImageLoading, setIsImageLoading] = useState(true);
+
+  useEffect(() => {
+    setIsImageLoading(true);
+  }, [activeIdx]);
 
   return (
     <section id="platform" className="py-24 px-6 md:px-32 bg-white">
       <div className="max-w-7xl mx-auto">
-        <h2 className="font-display text-4xl text-primary mb-2 font-bold">The Unified Platform</h2>
-        <div className="h-1.5 bg-secondary w-20 mb-16 rounded-full" />
-        <div className="flex flex-col md:flex-row gap-12">
-          <div className="md:w-1/3 flex flex-col gap-4">
-            {tabs.map(tab => (
-              <button key={tab.id} onClick={() => setActive(tab.id)} 
-                      className={`p-6 text-left rounded-none transition-all ${active === tab.id ? 'bg-primary-container text-white' : 'hover:bg-surface-container'}`}>
-                <div className="flex items-center gap-3 mb-2 font-display font-bold text-lg">
-                  <tab.icon />
-                  {tab.title}
-                </div>
-                <p className="text-sm opacity-80">{tab.desc}</p>
-              </button>
-            ))}
-          </div>
-          <div className="md:w-2/3 border border-outline/20 rounded-none p-12 bg-surface-container/50">
-            <AnimatePresence mode="wait">
-              <motion.div 
-                key={active}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2 }}
-                className="space-y-8"
-              >
-                <img src={activeTab.img} alt={activeTab.title} className="w-full h-80 object-cover shadow-lg" />
-                <div className="space-y-4">
-                  <h3 className="font-display text-3xl font-bold text-primary">{activeTab.title}</h3>
-                  <p className="text-on-surface-variant font-medium text-lg">{activeTab.desc}</p>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+        <div className="relative mb-16">
+            <span className="absolute -top-12 left-0 text-8xl font-black text-gray-100 z-0 select-none">PLATFORM OVERVIEW</span>
+            <h2 className="relative z-10 font-display text-4xl text-primary font-bold mb-4">Platform Overview</h2>
+            <div className="relative z-10 h-1.5 bg-secondary w-20 rounded-full" />
         </div>
+        
+        <div className="flex flex-col lg:flex-row gap-12 mb-16">
+            <div className="lg:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-6">
+                {sections.map((s, i) => (
+                    <button key={i} onClick={() => setActiveIdx(i)} className={`p-6 border text-left shadow-sm transition-all rounded-2xl ${activeIdx === i ? 'bg-primary-container border-primary' : 'bg-white border-outline/20 hover:border-primary'}`}>
+                        <h3 className={`text-xl font-bold mb-4 ${activeIdx === i ? 'text-white' : 'text-primary'}`}>{s.title}</h3>
+                        <ul className="space-y-3">
+                             {s.features.map(f => (
+                                 <li key={f} className={`flex items-center gap-2 font-medium text-sm ${activeIdx === i ? 'text-white/90' : 'text-on-surface-variant'}`}>
+                                     <span className={`w-2 h-2 rounded-full flex-shrink-0 ${activeIdx === i ? 'bg-white' : 'bg-red-600'}`} />
+                                     {f}
+                                 </li>
+                             ))}
+                        </ul>
+                    </button>
+                ))}
+            </div>
+            <div className="lg:w-1/2 flex flex-col gap-6 items-center justify-center">
+                <div className="relative w-full h-[400px] overflow-hidden shadow-xl bg-gray-100">
+                  {isImageLoading && <div className="absolute inset-0 animate-pulse bg-gray-200" />}
+                  <img 
+                    src={sections[activeIdx].image} 
+                    alt={sections[activeIdx].title} 
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isImageLoading ? 'opacity-0' : 'opacity-100'}`}
+                    onLoad={() => setIsImageLoading(false)}
+                  />
+                </div>
+
+            </div>
+        </div>
+
       </div>
     </section>
   );

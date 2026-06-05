@@ -9,14 +9,17 @@ const steps = [
 
 export default function SafeSyncHowItWorks() {
   return (
-    <section id="benefits" className="py-24 px-6 md:px-32 bg-surface-container">
+    <section id="benefits" className="py-24 px-6 md:px-32 bg-white">
       <div className="max-w-7xl mx-auto">
-        <h2 className="font-display text-4xl text-primary font-bold mb-2">How it Works</h2>
-        <div className="h-1.5 bg-secondary w-20 mb-16 rounded-full" />
+        <div className="relative mb-16">
+            <span className="absolute -top-12 left-0 text-8xl font-black text-gray-100 z-0 select-none">HOW IT WORKS</span>
+            <h2 className="relative z-10 font-display text-4xl text-primary font-bold mb-4">How it Works</h2>
+            <div className="relative z-10 h-1.5 bg-secondary w-20 rounded-full" />
+        </div>
         <div className="grid md:grid-cols-4 gap-8">
           {steps.map((step, i) => (
-            <div key={i} className="flex flex-col items-center text-center p-8 bg-white rounded-none shadow-sm border border-outline/20">
-              <div className="w-16 h-16 rounded-none bg-secondary/10 text-secondary flex items-center justify-center mb-6">
+            <div key={i} className="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-sm border border-outline/20">
+              <div className="w-16 h-16 rounded-full bg-secondary/10 text-secondary flex items-center justify-center mb-6">
                 <step.icon className="w-8 h-8" />
               </div>
               <h3 className="font-display text-xl font-bold text-primary mb-3">{i + 1}. {step.title}</h3>

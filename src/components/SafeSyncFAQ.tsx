@@ -1,37 +1,29 @@
 import { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const faq = [
-  { q: 'How does SafeSync integrate with my current system?', a: 'SafeSync works as an overlay, integrating via API and mobile app.' },
-  { q: 'Is user data encrypted?', a: 'Yes, we use AES-256 encryption for all data transmission and storage.' },
-  { q: 'Can we customize the panic button actions?', a: 'Absolutely, you can tailor incident response protocols in the Company Dashboard.' },
+  { q: 'How do I book a service on SafeSync?', a: 'Simply sign in to your SafeSync account, select the service you need, share your location, provide the necessary details, and submit your request. SafeSync will instantly connect you with the nearest available responder and provide real-time updates until assistance arrives.' },
+  { q: 'Where is SafeSync App Available?', a: 'We are currently operating in Nairobi and expanding to other major cities.' },
+  { q: 'Can I leave my House Key with my Service Provider?', a: 'No. Please note that our Terms of Service require you to be present when the service is being provided. Any exceptions to this rule are made at your own risk.' },
 ];
 
 export default function SafeSyncFAQ() {
-  const [open, setOpen] = useState<number | null>(null);
-  const [search, setSearch] = useState('');
   
-  const filteredFaq = faq.filter(item => item.q.toLowerCase().includes(search.toLowerCase()));
-
   return (
-    <section className="py-24 px-6 md:px-32 bg-white">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="font-display text-4xl text-primary mb-2 font-bold">Frequently Asked Questions</h2>
-        <div className="h-1.5 bg-secondary w-20 mb-8 rounded-full" />
-        <input type="text" placeholder="Search questions..." value={search} onChange={(e) => setSearch(e.target.value)} 
-               className="w-full p-4 mb-8 border border-outline/30 rounded-none text-sm" />
-        <div className="space-y-4">
-          {filteredFaq.map((item, i) => (
-            <div key={i} className="border border-outline/20 rounded-none p-4">
-              <button className="flex w-full justify-between items-center font-bold text-primary" onClick={() => setOpen(open === i ? null : i)}>
-                {item.q}
-                {open === i ? <ChevronUp /> : <ChevronDown />}
-              </button>
-              {open === i && <p className="mt-4 text-sm text-on-surface-variant font-medium">{item.a}</p>}
+    <section className="py-24 px-6 md:px-32 bg-gray-50">
+      <div className="max-w-4xl mx-auto text-center mb-16">
+        <h2 className="text-4xl font-bold mb-4 font-display text-primary">
+            Frequently Asked Questions
+            <div className="h-1 bg-pink-500 w-40 mx-auto mt-2" />
+        </h2>
+      </div>
+      <div className="max-w-3xl mx-auto space-y-6">
+          {faq.map((item, i) => (
+            <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+              <h3 className="font-bold text-gray-900 mb-3">{item.q}</h3>
+              <p className="text-gray-600 leading-relaxed">{item.a}</p>
             </div>
           ))}
         </div>
-      </div>
     </section>
   );
 }

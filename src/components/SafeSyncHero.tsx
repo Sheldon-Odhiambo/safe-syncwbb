@@ -1,30 +1,94 @@
-import { CheckCircle2 } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { CheckCircle2, Shield, MapPin, Users, Clock, Bell, CheckCircle } from 'lucide-react';
+
+const workflows = {
+  client: [
+    { id: 1, title: 'Alert', icon: Shield, screenshot: 'https://images.unsplash.com/photo-1555949963-aa90dcee99e5?auto=format&fit=crop&q=80&w=400' },
+    { id: 2, title: 'Track', icon: MapPin, screenshot: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=400' },
+    { id: 3, title: 'Wait for Respond', icon: Clock, screenshot: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=400' },
+  ],
+  responder: [
+    { id: 1, title: 'Receive', icon: Bell, screenshot: 'https://images.unsplash.com/photo-1573164713715-17761005a30e?auto=format&fit=crop&q=80&w=400' },
+    { id: 2, title: 'Track', icon: MapPin, screenshot: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=400' },
+    { id: 3, title: 'Resolve', icon: CheckCircle, screenshot: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=400' },
+  ]
+};
 
 export default function SafeSyncHero() {
+  const [activeView, setActiveView] = useState<'client' | 'responder'>('client');
+  const [activeStep, setActiveStep] = useState(0);
+
+  const steps = workflows[activeView];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % 3);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="pt-32 pb-24 px-6 md:px-32 bg-background overflow-hidden relative">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <section className="pt-32 pb-24 px-6 md:px-32 relative overflow-hidden">
+      <div className="absolute inset-0 bg-red-900/90 z-0" />
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center bg-fixed z-[-1]" />
+      
+      <div className="relative z-10 max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none bg-secondary/10 text-secondary font-semibold text-sm mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white font-semibold text-sm mb-6">
             <CheckCircle2 className="w-4 h-4" />
-            <span>MISSION CRITICAL RELIABILITY</span>
+            <span>KENYA'S EMERGENCY RESPONSE CONCIERGE</span>
           </div>
-          <h1 className="font-display text-5xl md:text-6xl text-primary mb-6 leading-tight font-bold tracking-tighter">
-            Real-Time Emergency Response for Modern Organizations
+          <h1 className="font-display text-5xl md:text-6xl text-white mb-6 leading-tight font-bold tracking-tighter">
+            <span style={{ WebkitTextStroke: '1px white', color: 'transparent' }}>Real-Time Emergency</span> Response
           </h1>
-          <p className="text-lg text-on-surface-variant mb-10 max-w-xl">
-            SafeSync helps companies respond faster to fire and medical emergencies through real-time alerts, GPS tracking, and seamless emergency coordination.
+          <p className="text-lg text-white/90 mb-10 max-w-xl">
+            SafeSync helps modern organizations respond faster to fire and medical emergencies through real-time alerts, GPS tracking, and seamless coordination.
           </p>
-          <div className="flex gap-4">
-            <a href="#benefits" className="px-8 py-4 rounded-none bg-primary text-on-primary font-semibold text-lg hover:bg-opacity-90 transition-all text-center">Request Demo</a>
-            <a href="#contact" className="px-8 py-4 rounded-none border-2 border-primary text-primary font-semibold text-lg hover:bg-surface-container transition-all text-center">Contact Us</a>
+          <div className="flex flex-col sm:flex-row gap-4 mb-10">
+            <a href="#" className="block h-12 w-40 bg-black rounded-xl border border-white/20 hover:scale-105 transition-transform">
+                <div className="h-full flex items-center justify-center text-white text-xs font-bold">Download on App Store</div>
+            </a>
+            <a href="#" className="block h-12 w-40 bg-black rounded-xl border border-white/20 hover:scale-105 transition-transform">
+                <div className="h-full flex items-center justify-center text-white text-xs font-bold">Get it on Google Play</div>
+            </a>
           </div>
         </div>
-        <div className="relative">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJP1k3taGxww_EtSPBVF2i6wQEeAkpmGdZpJELXcI0fbts9wfrmexXSXD2g0Apx9o0H6uacVaKGeSwqfOEkhvWn3LXbjUJwPdU7MM5Ra3YTLOcyEjZORtM6ByD2HQ1uy_J_vIGAHnySxDIMjvIhNRqaWAwkjQM-ec-CXMB1_5TIStdd3-XkvL3iMPmcREjk0-EKXn-hrC3-saooXFXchl-l9wRAZj62m14A1Hd1nncB01fbeGe4sbJZCa_DD0jqArXU5nEr_kPs1Ej"
-               alt="Emergency Dashboard"
-               className="rounded-none shadow-2xl border border-outline/30 w-full"
-          />
+
+        <div className="relative justify-self-center py-10 md:py-0 w-full flex flex-col items-center justify-center gap-8">
+          <div className="flex bg-white/10 rounded-full p-1 mb-4 backdrop-blur-sm border border-white/20 mx-auto w-fit">
+            <button onClick={() => { setActiveView('client'); setActiveStep(0); }} className={`px-6 py-2 rounded-full font-bold transition-all ${activeView === 'client' ? 'bg-white text-black' : 'text-white'}`}>Client</button>
+            <button onClick={() => { setActiveView('responder'); setActiveStep(0); }} className={`px-6 py-2 rounded-full font-bold transition-all ${activeView === 'responder' ? 'bg-white text-black' : 'text-white'}`}>Responder</button>
+          </div>
+
+          <div className="relative flex flex-col items-center">
+            {/* Steps positioned around the phone */}
+            {steps.map((step, idx) => (
+              <button 
+                key={step.id}
+                onClick={() => setActiveStep(idx)}
+                className={`absolute z-20 flex items-center gap-4 text-white font-bold transition-all ${activeStep === idx ? 'scale-110' : 'opacity-70'}`}
+                style={{
+                  top: idx === 0 ? '10%' : idx === 1 ? '45%' : '80%',
+                  left: idx % 2 === 0 ? '-10rem' : 'auto',
+                  right: idx % 2 !== 0 ? '-10rem' : 'auto',
+                }}
+              >
+                {idx % 2 === 0 && <span className="text-sm">{step.id}. {step.title}</span>}
+                <div className={`p-4 rounded-full bg-white/20 backdrop-blur-md border ${activeStep === idx ? 'border-pink-400 bg-pink-500/20' : 'border-white/10'}`}>
+                    <step.icon className="w-6 h-6" />
+                </div>
+                {idx % 2 !== 0 && <span className="text-sm">{step.id}. {step.title}</span>}
+                {/* Connecting line */}
+                <div className={`absolute top-1/2 w-16 h-0.5 bg-white/30 ${idx % 2 === 0 ? 'left-full' : 'right-full'}`} />
+              </button>
+            ))}
+            
+            {/* Phone Screen */}
+            <div className="w-[280px] h-[550px] border-8 border-gray-900 rounded-[3rem] bg-gray-800 shadow-2xl relative overflow-hidden z-10">
+                <div className="absolute top-0 inset-x-8 h-4 bg-gray-900 rounded-b-xl z-10"></div>
+                <img src={steps[activeStep].screenshot} alt="App UI" className="h-full w-full object-cover transition-opacity duration-300" />
+            </div>
+          </div>
         </div>
       </div>
     </section>

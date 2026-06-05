@@ -26,7 +26,7 @@ export default function SafeSyncNavbar() {
         </div>
         
         <div className="flex items-center gap-4">
-          <a href="#benefits" className="hidden md:block px-6 py-2 rounded-none bg-primary text-on-primary font-semibold hover:bg-opacity-90">Demo</a>
+          <a href="#benefits" className="hidden md:block px-6 py-2 rounded-full bg-primary text-on-primary font-semibold hover:bg-opacity-90">Demo</a>
           <button className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <X /> : <Menu />}
           </button>
@@ -45,7 +45,7 @@ export default function SafeSyncNavbar() {
               {item.name}
             </a>
           ))}
-          <a href="#benefits" onClick={() => setIsMobileMenuOpen(false)} className="px-6 py-2 rounded-none bg-primary text-on-primary font-semibold text-center hover:bg-opacity-90">Demo</a>
+          <a href="#benefits" onClick={() => setIsMobileMenuOpen(false)} className="px-6 py-2 rounded-full bg-primary text-on-primary font-semibold text-center hover:bg-opacity-90">Demo</a>
         </div>
       )}
     </nav>
