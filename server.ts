@@ -18,6 +18,12 @@ async function startServer() {
     }
   });
 
+  const protocols = [
+    { title: 'Medical Emergency', desc: 'Secure the area, assess the condition, initiate SafeSync alert, and follow operator instructions.' },
+    { title: 'Fire Protocol', desc: 'Activate alarm, evacuate following designated routes, trigger SafeSync alert, and assemble at the meet point.' },
+    { title: 'Intrusion Alert', desc: 'Secure rooms, remain quiet, trigger silent SafeSync alert, and wait for security intervention.' },
+  ];
+
   // API route for chatbot
   app.post("/api/chat", async (req, res) => {
     const { message } = req.body;
@@ -27,7 +33,15 @@ async function startServer() {
 
       const responseStream = await ai.models.generateContentStream({
         model: "gemini-3.5-flash",
-        contents: `You are a helpful assistant for SafeSync, a real-time emergency response platform. Answer safety-related questions in all situations, including emergencies or general safety, concisely as a safety-assistant. If the message is about a severe emergency, emphasize that they should contact local emergency services immediately, and provide clear, simple steps on what the user can do to stay safe or assist others while waiting for professional help. Message: ${message}`,
+        contents: `You are SafeSync's Intelligent Safety Companion. Your role is twofold:
+1. Provide immediate, actionable safety guidance for emergencies (Medical, Fire, Intrusion). Always prioritize advising the user to contact local emergency services if a situation is severe. Use the following protocols:
+   - Medical Emergency: ${protocols[0].desc}
+   - Fire Protocol: ${protocols[1].desc}
+   - Intrusion Alert: ${protocols[2].desc}
+2. Act as a supportive assistant for the SafeSync platform. Explain how users can book services, use the app for real-time tracking, or get help when needed.
+
+Keep all responses EXTREMELY concise, empathetic, and professional. If you aren't sure, advise them to use the app to contact a responder.
+Message: ${message}`,
       });
 
       for await (const chunk of responseStream) {

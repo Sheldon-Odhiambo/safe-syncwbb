@@ -5,7 +5,7 @@ import { useState } from 'react';
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<{ sender: 'user' | 'bot'; text: string }[]>([
-    { sender: 'bot', text: 'Hello! How can I help you with SafeSync today?' },
+    { sender: 'bot', text: 'Hello! How can I assist you?' },
   ]);
   const [input, setInput] = useState('');
 

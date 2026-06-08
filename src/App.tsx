@@ -6,6 +6,7 @@ import SafeSyncNavbar from './components/SafeSyncNavbar';
 import SafeSyncHero from './components/SafeSyncHero';
 import SafeSyncStats from './components/SafeSyncStats';
 import { motion } from 'motion/react';
+import { LanguageProvider } from './context/LanguageContext';
 
 import SafeSyncHowItWorks from './components/SafeSyncHowItWorks';
 import SafeSyncPlatform from './components/SafeSyncPlatform';
@@ -34,24 +35,26 @@ const AnimationWrapper = ({ children }: { children: React.ReactNode }) => (
 
 export default function App() {
   return (
-    <div className="font-sans text-on-background">
-      <ScrollProgressBar />
-      <WhatsAppButton />
-      <ChatBot />
-      <SafeSyncNavbar />
-      <SafeSyncHero />
-      <AnimationWrapper><SafeSyncStats /></AnimationWrapper>
+    <LanguageProvider>
+      <div className="font-sans text-on-background">
+        <ScrollProgressBar />
+        <WhatsAppButton />
+        <ChatBot />
+        <SafeSyncNavbar />
+        <SafeSyncHero />
+        <AnimationWrapper><SafeSyncStats /></AnimationWrapper>
 
-      <AnimationWrapper><SafeSyncHowItWorks /></AnimationWrapper>
-      <AnimationWrapper><SafeSyncPlatform /></AnimationWrapper>
-      <AnimationWrapper><SafeSyncIndustries /></AnimationWrapper>
-      <AnimationWrapper><SafeSyncPartners /></AnimationWrapper>
-      <AnimationWrapper><InsurancePackages /></AnimationWrapper>
-      <AnimationWrapper><SafeSyncAbout /></AnimationWrapper>
-      <AnimationWrapper><SafeSyncFAQ /></AnimationWrapper>
-      <AnimationWrapper><SafeSyncContactForm /></AnimationWrapper>
-      <SafeSyncFooter />
-      <ScrollToTop />
-    </div>
+        <AnimationWrapper><SafeSyncHowItWorks /></AnimationWrapper>
+        <AnimationWrapper><SafeSyncPlatform /></AnimationWrapper>
+        <AnimationWrapper><SafeSyncIndustries /></AnimationWrapper>
+        <AnimationWrapper><SafeSyncPartners /></AnimationWrapper>
+        <AnimationWrapper><InsurancePackages /></AnimationWrapper>
+        <AnimationWrapper><SafeSyncAbout /></AnimationWrapper>
+        <AnimationWrapper><SafeSyncFAQ /></AnimationWrapper>
+        <AnimationWrapper><SafeSyncContactForm /></AnimationWrapper>
+        <SafeSyncFooter />
+        <ScrollToTop />
+      </div>
+    </LanguageProvider>
   );
 }

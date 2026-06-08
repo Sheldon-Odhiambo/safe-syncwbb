@@ -2,9 +2,9 @@ import { motion, useScroll, useSpring, AnimatePresence } from 'motion/react';
 import { useRef, useState, useEffect } from 'react';
 
 const missionImages = [
-  "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
-  "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&q=80&w=800",
-  "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800"
+  "https://images.unsplash.com/photo-1596524430615-b46610368140?auto=format&fit=crop&q=80&w=800",
+  "https://images.unsplash.com/photo-1576267423047-16b8ec3376d5?auto=format&fit=crop&q=80&w=800",
+  "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
 ];
 
 export default function SafeSyncAbout() {

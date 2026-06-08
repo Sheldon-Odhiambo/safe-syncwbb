@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { CheckCircle2, Shield, MapPin, Users, Clock, Bell, CheckCircle } from 'lucide-react';
+import { motion } from 'motion/react';
+import { CheckCircle2, Shield, MapPin, Users, Clock, Bell, CheckCircle, Apple, Play } from 'lucide-react';
 
 const workflows = {
   client: [
@@ -45,11 +46,19 @@ export default function SafeSyncHero() {
             SafeSync helps modern organizations respond faster to fire and medical emergencies through real-time alerts, GPS tracking, and seamless coordination.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
-            <a href="#" className="block h-12 w-40 bg-black rounded-xl border border-white/20 hover:scale-105 transition-transform">
-                <div className="h-full flex items-center justify-center text-white text-xs font-bold">Download on App Store</div>
+            <a href="#" className="flex items-center gap-3 px-6 h-12 bg-black text-white rounded-xl border border-white/20 hover:scale-105 transition-transform">
+                <Apple className="w-6 h-6" />
+                <div className="text-xs">
+                    <div className="text-[10px] opacity-70">Download on</div>
+                    <div className="font-bold">App Store</div>
+                </div>
             </a>
-            <a href="#" className="block h-12 w-40 bg-black rounded-xl border border-white/20 hover:scale-105 transition-transform">
-                <div className="h-full flex items-center justify-center text-white text-xs font-bold">Get it on Google Play</div>
+            <a href="#" className="flex items-center gap-3 px-6 h-12 bg-black text-white rounded-xl border border-white/20 hover:scale-105 transition-transform">
+                <Play className="w-6 h-6" />
+                <div className="text-xs">
+                    <div className="text-[10px] opacity-70">Get it on</div>
+                    <div className="font-bold">Google Play</div>
+                </div>
             </a>
           </div>
         </div>
@@ -84,10 +93,14 @@ export default function SafeSyncHero() {
             ))}
             
             {/* Phone Screen */}
-            <div className="w-[280px] h-[550px] border-8 border-gray-900 rounded-[3rem] bg-gray-800 shadow-2xl relative overflow-hidden z-10">
+            <motion.div 
+                animate={{ y: [0, -20, 0] }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                className="w-[280px] h-[550px] border-8 border-gray-900 rounded-[3rem] bg-gray-800 shadow-2xl relative overflow-hidden z-10"
+            >
                 <div className="absolute top-0 inset-x-8 h-4 bg-gray-900 rounded-b-xl z-10"></div>
                 <img src={steps[activeStep].screenshot} alt="App UI" className="h-full w-full object-cover transition-opacity duration-300" />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
