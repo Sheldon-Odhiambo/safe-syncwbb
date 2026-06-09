@@ -17,9 +17,9 @@ export default function SafeSyncHowItWorks() {
   const t = translations[language];
 
   const protocols = [
-    { title: t.MedicalEmergency, desc: t.MedicalDesc, image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=400' },
-    { title: t.FireProtocol, desc: t.FireDesc, image: 'https://images.unsplash.com/photo-1541997194-e3549646b146?auto=format&fit=crop&q=80&w=400' },
-    { title: t.IntrusionAlert, desc: t.IntrusionDesc, image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=400' },
+    { title: t.MedicalEmergency, desc: t.MedicalDesc, image: '/assets/medical-e.jpg' },
+    { title: t.FireProtocol, desc: t.FireDesc, image: '/assets/fire-p.jpg' },
+    { title: t.IntrusionAlert, desc: t.IntrusionDesc, image: '/assets/intrusion-a.jpg' },
   ];
 
   const next = () => setActiveProtocol((prev) => (prev + 1) % protocols.length);

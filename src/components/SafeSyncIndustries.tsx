@@ -3,11 +3,11 @@ import { motion } from 'motion/react';
 import { useState } from 'react';
 
 const industries = [
-  { icon: School, title: 'Schools', desc: 'Rapid response for campus safety.', img: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=400' },
+  { icon: School, title: 'Schools', desc: 'Rapid response for campus safety.', img: '/assets/school.jpg' },
   { icon: Hospital, title: 'Hospitals', desc: 'Critical coordination.', img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=400' },
   { icon: Building2, title: 'Real Estate', desc: 'Smart security.', img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=400' },
   { icon: Building, title: 'Corporates', desc: 'Enterprise-grade safety.', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=400' },
-  { icon: Factory, title: 'Factories', desc: 'Occupational safety.', img: 'https://images.unsplash.com/photo-1565515020117-6404396860d5?auto=format&fit=crop&q=80&w=400' },
+  { icon: Factory, title: 'Factories', desc: 'Occupational safety.', img: '/assets/factories.jpg' },
   { icon: Calendar, title: 'Events', desc: 'High-density safety.', img: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=400' },
   { icon: Shield, title: 'Insurers', desc: 'Claims-ready incident data.', img: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=400' },
 ];

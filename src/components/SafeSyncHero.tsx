@@ -4,9 +4,9 @@ import { CheckCircle2, Shield, MapPin, Users, Clock, Bell, CheckCircle, Apple, P
 
 const workflows = {
   client: [
-    { id: 1, title: 'Alert', icon: Shield, screenshot: 'https://images.unsplash.com/photo-1555949963-aa90dcee99e5?auto=format&fit=crop&q=80&w=400' },
-    { id: 2, title: 'Track', icon: MapPin, screenshot: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=400' },
-    { id: 3, title: 'Wait for Respond', icon: Clock, screenshot: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=400' },
+    { id: 1, title: 'Alert', icon: Shield, screenshot: '/assets/client1.png' },
+    { id: 2, title: 'Track', icon: MapPin, screenshot: '/assets/client2.png' },
+    { id: 3, title: 'Wait for Respond', icon: Clock, screenshot: '/assets/client3.png' },
   ],
   responder: [
     { id: 1, title: 'Receive', icon: Bell, screenshot: 'https://images.unsplash.com/photo-1573164713715-17761005a30e?auto=format&fit=crop&q=80&w=400' },

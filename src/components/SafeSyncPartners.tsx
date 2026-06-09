@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 
 const partners = [
-  { name: 'RedCross', logo: '' },
+  { name: 'RedCross', logo: '/assets/redcross.jpeg' },
   { name: 'Ambulance', logo: '' },
   { name: 'Insurance', logo: '' },
-  { name: 'SafetyCouncil', logo: '' },
+  { name: 'SafetyCouncil', logo: '/assets/council.png' },
 ];
 
 const PartnerLogo = ({ partner }: { partner: typeof partners[0] }) => {
