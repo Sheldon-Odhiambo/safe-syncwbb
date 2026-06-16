@@ -5,7 +5,7 @@ const partners = [
   { name: 'RedCross', logo: '/assets/redcross.jpeg' },
   { name: 'Ambulance', logo: '' },
   { name: 'Insurance', logo: '' },
-  { name: 'SafetyCouncil', logo: '/assets/council.png' },
+  { name: 'City-Council', logo: '/assets/council.png' },
 ];
 
 const PartnerLogo = ({ partner }: { partner: typeof partners[0] }) => {

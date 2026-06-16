@@ -1,4 +1,4 @@
-import { School, Hospital, Building2, Building, Factory, Calendar, Shield } from 'lucide-react';
+import { School, Hospital, Building2, Building, Factory, Calendar, Shield, Truck } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useState } from 'react';
 
@@ -10,6 +10,7 @@ const industries = [
   { icon: Factory, title: 'Factories', desc: 'Occupational safety.', img: '/assets/factories.jpg' },
   { icon: Calendar, title: 'Events', desc: 'High-density safety.', img: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=400' },
   { icon: Shield, title: 'Insurers', desc: 'Claims-ready incident data.', img: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=400' },
+  { icon: Truck, title: 'Logistics', desc: 'Secure fleet & driver safety.', img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=400' },
 ];
 
 export default function SafeSyncIndustries() {

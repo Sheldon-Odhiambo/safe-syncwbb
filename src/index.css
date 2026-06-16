@@ -4,7 +4,7 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  
+
   --color-primary: #000000;
   --color-primary-container: #0d1c32;
   --color-secondary: #ba0035;
@@ -19,5 +19,47 @@
   --color-outline-variant: #c5c6cd;
 }
 
+/* =========================
+   BASE STYLES
+========================= */
 body {
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+}
+
+/* =========================
+   3D LOGO ANIMATION
+========================= */
+@keyframes spin3d {
+  0% {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(1000px) rotateY(360deg);
+  }
+}
+
+.spin-3d {
+  animation: spin3d 8s linear infinite;
+  transform-style: preserve-3d;
+}
+
+/* Optional: hover-only version */
+.spin-3d-hover:hover {
+  animation: spin3d 2.5s linear infinite;
+}
+
+/* =========================
+   OPTIONAL ENHANCEMENTS
+========================= */
+
+/* Soft SaaS glow */
+.logo-glow {
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.25));
+}
+
+/* Smooth transitions for UI elements */
+.smooth {
+  transition: all 0.3s ease;
 }

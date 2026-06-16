@@ -46,20 +46,37 @@ export default function SafeSyncHero() {
             SafeSync helps modern organizations respond faster to fire and medical emergencies through real-time alerts, GPS tracking, and seamless coordination.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
-            <a href="#" className="flex items-center gap-3 px-6 h-12 bg-black text-white rounded-xl border border-white/20 hover:scale-105 transition-transform">
-                <Apple className="w-6 h-6" />
-                <div className="text-xs">
-                    <div className="text-[10px] opacity-70">Download on</div>
-                    <div className="font-bold">App Store</div>
-                </div>
-            </a>
-            <a href="#" className="flex items-center gap-3 px-6 h-12 bg-black text-white rounded-xl border border-white/20 hover:scale-105 transition-transform">
-                <Play className="w-6 h-6" />
-                <div className="text-xs">
-                    <div className="text-[10px] opacity-70">Get it on</div>
-                    <div className="font-bold">Google Play</div>
-                </div>
-            </a>
+            <a
+  href="https://www.apple.com/app-store/"
+  className="flex items-center gap-3 px-6 h-12 bg-black text-white rounded-xl border border-white/20 hover:scale-105 transition-transform"
+>
+  <img
+    src="/assets/apple-logo.png"
+    alt="App Store"
+    className="w-6 h-6 object-contain"
+  />
+
+  <div className="text-xs">
+    <div className="text-[10px] opacity-70">Download on</div>
+    <div className="font-bold">App Store</div>
+  </div>
+</a>
+
+<a
+  href="https://play.google.com/store/apps"
+  className="flex items-center gap-3 px-6 h-12 bg-black text-white rounded-xl border border-white/20 hover:scale-105 transition-transform"
+>
+  <img
+    src="/assets/playstore.png"
+    alt="Google Play"
+    className="w-6 h-6 object-contain"
+  />
+
+  <div className="text-xs">
+    <div className="text-[10px] opacity-70">Get it on</div>
+    <div className="font-bold">Google Play</div>
+  </div>
+</a>
           </div>
         </div>
 
