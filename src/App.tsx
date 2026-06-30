@@ -2,6 +2,7 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SafeSyncNavbar from './components/SafeSyncNavbar';
 import SafeSyncHero from './components/SafeSyncHero';
 import SafeSyncStats from './components/SafeSyncStats';
@@ -33,9 +34,8 @@ const AnimationWrapper = ({ children }: { children: React.ReactNode }) => (
   </motion.div>
 );
 
-export default function App() {
+function HomePage() {
   return (
-    <LanguageProvider>
       <div className="font-sans text-on-background">
         <ScrollProgressBar />
         <WhatsAppButton />
@@ -55,6 +55,18 @@ export default function App() {
         <SafeSyncFooter />
         <ScrollToTop />
       </div>
+  );
+}
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+       
+        </Routes>
+      </BrowserRouter>
     </LanguageProvider>
   );
 }
