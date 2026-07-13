@@ -20,6 +20,8 @@ export default function SafeSyncHowItWorks() {
     { title: t.MedicalEmergency, desc: t.MedicalDesc, image: '/assets/medical-e.jpg' },
     { title: t.FireProtocol, desc: t.FireDesc, image: '/assets/fire-p.jpg' },
     { title: t.IntrusionAlert, desc: t.IntrusionDesc, image: '/assets/intrusion-a.jpg' },
+    { title: t.Flooding, desc: t.FloodingDesc, image: '/assets/flooding.jpg' },
+    { title: t.NaturalDisaster, desc: t.NaturalDisasterDesc, image: '/assets/disasater.jpg' },
   ];
 
   const next = () => setActiveProtocol((prev) => (prev + 1) % protocols.length);

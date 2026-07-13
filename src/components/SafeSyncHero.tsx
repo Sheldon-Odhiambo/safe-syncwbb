@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { CheckCircle2, Shield, MapPin, Users, Clock, Bell, CheckCircle, Apple, Play } from 'lucide-react';
+import { CheckCircle2, Shield, MapPin, Users, Clock, Bell, CheckCircle } from 'lucide-react';
 
 const workflows = {
   client: [
     { id: 1, title: 'Alert', icon: Shield, screenshot: '/assets/client1.png' },
-    { id: 2, title: 'Track', icon: MapPin, screenshot: '/assets/client2.png' },
-    { id: 3, title: 'Wait for Respond', icon: Clock, screenshot: '/assets/client3.png' },
+    { id: 2, title: 'Track', icon: MapPin, screenshot: 'assets/client2.png' },
+    { id: 3, title: 'Wait for Respond', icon: Clock, screenshot: '/assets/client1.png' },
   ],
   responder: [
-    { id: 1, title: 'Receive', icon: Bell, screenshot: 'https://images.unsplash.com/photo-1573164713715-17761005a30e?auto=format&fit=crop&q=80&w=400' },
-    { id: 2, title: 'Track', icon: MapPin, screenshot: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=400' },
-    { id: 3, title: 'Resolve', icon: CheckCircle, screenshot: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=400' },
+    { id: 1, title: 'Receive', icon: Bell, screenshot: '/assets/responder1.png' },
+    { id: 2, title: 'Track', icon: MapPin, screenshot: '/assets/responder3.png' },
+    { id: 3, title: 'Resolve', icon: CheckCircle, screenshot: '/assets/responder2.png' },
   ]
 };
 
@@ -31,7 +31,7 @@ export default function SafeSyncHero() {
   return (
     <section className="pt-32 pb-24 px-6 md:px-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-red-900/90 z-0" />
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center bg-fixed z-[-1]" />
+      <div className="absolute inset-0 bg-[url('/assets/intrusion-a.jpg')] bg-cover bg-center bg-fixed z-[-1]" />
       
       <div className="relative z-10 max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div>
@@ -46,37 +46,22 @@ export default function SafeSyncHero() {
             SafeSync helps modern organizations respond faster to fire and medical emergencies through real-time alerts, GPS tracking, and seamless coordination.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
-            <a
-  href="https://www.apple.com/app-store/"
-  className="flex items-center gap-3 px-6 h-12 bg-black text-white rounded-xl border border-white/20 hover:scale-105 transition-transform"
->
-  <img
-    src="/assets/apple-logo.png"
-    alt="App Store"
-    className="w-6 h-6 object-contain"
-  />
-
-  <div className="text-xs">
-    <div className="text-[10px] opacity-70">Download on</div>
-    <div className="font-bold">App Store</div>
-  </div>
-</a>
-
-<a
-  href="https://play.google.com/store/apps"
-  className="flex items-center gap-3 px-6 h-12 bg-black text-white rounded-xl border border-white/20 hover:scale-105 transition-transform"
->
-  <img
-    src="/assets/playstore.png"
-    alt="Google Play"
-    className="w-6 h-6 object-contain"
-  />
-
-  <div className="text-xs">
-    <div className="text-[10px] opacity-70">Get it on</div>
-    <div className="font-bold">Google Play</div>
-  </div>
-</a>
+            <div className="flex gap-4">
+              <a href="#" className="flex items-center gap-3 px-4 h-12 bg-black text-white rounded-xl border border-white/20 hover:scale-105 transition-transform">
+                  <img src="https://res.cloudinary.com/di15s67o/image/upload/f_auto,q_auto/apple-logo_dcz0jz" alt="App Store" className="w-8 h-8" />
+                  <div className="text-xs">
+                      <div className="text-[10px] opacity-70">Download on</div>
+                      <div className="font-bold">App Store</div>
+                  </div>
+              </a>
+              <a href="#" className="flex items-center gap-3 px-4 h-12 bg-black text-white rounded-xl border border-white/20 hover:scale-105 transition-transform">
+                  <img src="/assets/playstore.png" alt="Google Play" className="w-8 h-8" />
+                  <div className="text-xs">
+                      <div className="text-[10px] opacity-70">Get it on</div>
+                      <div className="font-bold">Google Play</div>
+                  </div>
+              </a>
+            </div>
           </div>
         </div>
 

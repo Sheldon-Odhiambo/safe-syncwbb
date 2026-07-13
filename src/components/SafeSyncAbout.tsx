@@ -2,8 +2,8 @@ import { motion, useScroll, useSpring, AnimatePresence } from 'motion/react';
 import { useRef, useState, useEffect } from 'react';
 
 const missionImages = [
-  "/assets/mission1.jpg",
   "/assets/mission2.jpg",
+  "/assets/disasater.jpg",
   "/assets/mission3.jpg"
 ];
 

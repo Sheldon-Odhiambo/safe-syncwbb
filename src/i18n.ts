@@ -12,20 +12,28 @@ export const translations = {
     MedicalDesc: 'Secure the area, assess the condition, initiate SafeSync alert, and follow operator instructions.',
     FireDesc: 'Activate alarm, evacuate following designated routes, trigger SafeSync alert, and assemble at the meet point.',
     IntrusionDesc: 'Secure rooms, remain quiet, trigger silent SafeSync alert, and wait for security intervention.',
+    Flooding: 'Flooding Incident',
+    FloodingDesc: 'Move to higher ground, avoid walking through floodwaters, disconnect electrical appliances if safe to do so, and trigger SafeSync alert.',
+    NaturalDisaster: 'Natural Disaster',
+    NaturalDisasterDesc: 'Stay indoors away from windows, follow official evacuation orders, keep emergency kit ready, and trigger SafeSync alert for assistance.',
   },
-  sw: {
-    Platform: 'Jukwaa',
-    Industries: 'Sekta',
-    Benefits: 'Faida',
-    About: 'Kuhusu',
+  es: {
+    Platform: 'Plataforma',
+    Industries: 'Industrias',
+    Benefits: 'Beneficios',
+    About: 'Acerca de',
     Demo: 'Demo',
-    QuickGuide: 'Itifaki za Mwongozo wa Haraka',
-    MedicalEmergency: 'Dharura ya Kimatibabu',
-    FireProtocol: 'Itifaki ya Moto',
-    IntrusionAlert: 'Tahadhari ya Uvamizi',
-    MedicalDesc: 'Linda eneo, tathmini hali, anzisha tahadhari ya SafeSync, na ufuate maagizo ya mwendeshaji.',
-    FireDesc: 'Washa kengele, toka nje kwa kufuata njia zilizotengwa, anzisha tahadhari ya SafeSync, na ukutane mahali pa kukutania.',
-    IntrusionDesc: 'Linda vyumba, kaa kimya, anzisha tahadhari ya kimya ya SafeSync, na usubiri kuingilia kati kwa usalama.',
+    QuickGuide: 'Protocolos de guía rápida',
+    MedicalEmergency: 'Emergencia médica',
+    FireProtocol: 'Protocolo de incendio',
+    IntrusionAlert: 'Alerta de intrusión',
+    MedicalDesc: 'Asegure el área, evalúe la condición, inicie la alerta SafeSync y siga las instrucciones del operador.',
+    FireDesc: 'Active la alarma, evacúe siguiendo las rutas designadas, active la alerta SafeSync y reúnase en el punto de encuentro.',
+    IntrusionDesc: 'Asegure las habitaciones, manténgase en silencio, active la alerta silenciosa SafeSync y espere la intervención de seguridad.',
+    Flooding: 'Incidente de inundación',
+    FloodingDesc: 'Muévase a un terreno más alto, evite caminar por aguas de inundación, desconecte los aparatos eléctricos si es seguro hacerlo y active la alerta SafeSync.',
+    NaturalDisaster: 'Desastre natural',
+    NaturalDisasterDesc: 'Quédese en el interior lejos de las ventanas, siga las órdenes oficiales de evacuación, mantenga el kit de emergencia listo y active la alerta SafeSync para obtener asistencia.',
   },
   fr: {
     Platform: 'Plateforme',
@@ -40,8 +48,12 @@ export const translations = {
     MedicalDesc: 'Sécurisez la zone, évaluez l\'état, lancez l\'alerte SafeSync et suivez les instructions de l\'opérateur.',
     FireDesc: 'Activez l\'alarme, évacuez en suivant les itinéraires désignés, déclenchez l\'alerte SafeSync et rassemblez-vous au point de rencontre.',
     IntrusionDesc: 'Sécurisez les pièces, restez silencieux, déclenchez l\'alerte silencieuse SafeSync et attendez l\'intervention de la sécurité.',
+    Flooding: 'Inondation',
+    FloodingDesc: 'Déplacez-vous vers des zones surélevées, évitez de marcher dans les eaux de crue, débranchez les appareils électriques si possible, et lancez l\'alerte SafeSync.',
+    NaturalDisaster: 'Catastrophe naturelle',
+    NaturalDisasterDesc: 'Restez à l\'intérieur loin des fenêtres, suivez les ordres d\'évacuation officiels, préparez une trousse d\'urgence, et lancez l\'alerte SafeSync pour obtenir de l\'aide.',
   }
 };
 
-export type Language = 'en' | 'sw' | 'fr';
-export const languages: Language[] = ['en', 'sw', 'fr'];
+export type Language = 'en' | 'es' | 'fr';
+export const languages: Language[] = ['en', 'es', 'fr'];

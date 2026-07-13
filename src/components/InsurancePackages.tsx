@@ -33,7 +33,12 @@ export default function InsurancePackages() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ 
+                delay: index * 0.1, 
+                type: "spring", 
+                stiffness: 100,
+                damping: 15
+              }}
               className="p-8 border border-outline-variant hover:border-primary transition-all hover:scale-105 bg-gray-50 flex flex-col items-center text-center w-full focus:outline-none focus:ring-2 focus:ring-primary rounded-2xl"
             >
               <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.8 }}>
