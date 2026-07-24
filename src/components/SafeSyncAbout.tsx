@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from 'react';
 const missionImages = [
   "/assets/mission2.jpg",
   "/assets/disasater.jpg",
-  "/assets/mission3.jpg"
+  "/assets/mission2.jpg"
 ];
 
 export default function SafeSyncAbout() {
